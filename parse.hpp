@@ -131,7 +131,7 @@ Node expr(const std::string& s, int& i, std::set<std::string>& valList) {
 Node term(const std::string& s, int& i, std::set<std::string>& valList) {
 	DEBUG(std::cerr << "term" << std::endl);
 	Node node = factor(s, i, valList);
-	while(i < s.size() && (s.at(i) == '*' || s.at(i) == '/')) {
+	while(i < s.size() && (s.at(i) == '*' || s.at(i) == '/' || s.at(i) == '%')) {
 		auto tmp = std::make_shared<Term>();
 		tmp->operand.push_back(node);
 		char operation = s.at(i); ++i;
